@@ -9,14 +9,15 @@ import {
 } from "react-icons/si";
 import heroImage from "../assets/hero.png";
 import { Typewriter } from "react-simple-typewriter";
-import { Element } from "react-scroll";
+import { Element, Link } from "react-scroll";
+import { NavLink } from "react-router";
 
 const Header = () => {
   return (
    <Element name="home">
      <div
       id="home"
-      className="flex flex-col md:flex-row justify-around items-center px-6 md:px-20 rounded-2xl bg-gradient-to-b from-[#0f0f23] to-[#1f1f5a] text-white py-28"
+      className="flex flex-col md:flex-row pb-80 md:pb-20 xl:pb-40 justify-around px-6 md:px-20 rounded-2xl bg-gradient-to-b from-[#0f0f23] to-[#1f1f5a] text-white py-28"
     >
       <div className="space-y-6 text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-bold leading-tight ">
@@ -32,12 +33,12 @@ const Header = () => {
           ></Typewriter>
         </h4>
         <div className="flex justify-center md:justify-start gap-6">
-          <button className="hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 px-6 py-3 rounded-xl font-semibold cursor-pointer transition-colors duration-300 border border-purple-500">
+          <NavLink target="blank" to='https://drive.google.com/file/d/1x3ZUtpNsV4LdTuSNJyffZOlE6HNjpBMB/view?usp=sharing' className="hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 px-6 py-3 rounded-xl font-semibold cursor-pointer transition-colors duration-300 border border-purple-500">
             Resume
-          </button>
-          <button className="border border-purple-500 px-6 py-3 cursor-pointer font-semibold rounded-xl hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white transition-colors duration-300">
+          </NavLink>
+          <Link to='project' smooth={true} duration={1000} offset={-300} className="border border-purple-500 px-6 py-3 cursor-pointer font-semibold rounded-xl hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white transition-colors duration-300">
             Projects
-          </button>
+          </Link>
         </div>
       </div>
         <motion.div
@@ -45,7 +46,7 @@ const Header = () => {
             transition={{duration: 2, repeat: Infinity}}
         className="relative flex items-center justify-center text-white">
           {/* Orbiting Circle */}
-          <div className="absolute w-[400px] h-[400px] rounded-full border border-purple-600 animated">
+          <div className="absolute top-20 md:top-0 w-[300px] h-[300px] md:w-[350px] md:h-[350px] rounded-full border border-purple-600 animated">
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
               <FaReact size={24} className="text-cyan-400" />
             </div>
@@ -73,7 +74,7 @@ const Header = () => {
           </div>
 
           {/* Centered User Image */}
-          <div className="relative z-10 w-48 h-48 rounded-full overflow-hidden border-4 border-purple-500 shadow-lg">
+          <div className="relative z-10 w-48 h-48 rounded-full top-35 md:top-3 xl:top-14 overflow-hidden border-4 border-purple-500 shadow-lg">
             <img
               src={heroImage}
               alt="Sazzad"

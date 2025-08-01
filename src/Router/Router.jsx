@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import HomeLayout from "../Layout/HomeLayout";
 import Home from "../Pages/Home";
-import Header from "../Componentes/Header";
-import About from "../Componentes/About";
-
+import Dashboard from "../Pages/Dashboard";
+import AddTask from "../Componentes/AddTask";
+import Messages from "../Componentes/Message";
 export const Router = createBrowserRouter([
     {
         path: '/',
@@ -14,12 +14,18 @@ export const Router = createBrowserRouter([
                 Component: Home
             },
             {
-                path: '/home',
-                Component: Header
-            },
-            {
-                path: '/about',
-                Component: About
+                path: '/dashboard',
+                Component: Dashboard,
+                children: [
+                    {
+                        index: true,
+                        Component: AddTask
+                    },
+                    {
+                        path: '/dashboard/messages',
+                        Component: Messages
+                    }
+                ]
             }
         ]
     }

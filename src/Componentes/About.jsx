@@ -19,7 +19,7 @@ const About = () => {
       <p className="text-xl text-center font-bold">
         Building Scalable and interactive web solution
       </p>
-      <div className="mt-10 grid grid-cols-2 justify-between items-center">
+      <div className="mt-10 grid grid-cols-1 text-center md:text-left md:grid-cols-2 justify-between items-center">
         <div className="space-y-3">
           <p className=" font-semibold">
             Motivated frontend Developer skilled in HTML, CSS3, javaScript,
@@ -32,7 +32,7 @@ const About = () => {
             My goal to become a skilled a full-stack Developer and build
             impactful digital solutions that solve real-world problems.
           </p>
-          <div  className="flex gap-5 mt-10">
+          <div  className="grid grid-cols-3 md:grid-cols-6 gap-5  mt-10">
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, repeat: Infinity}}>
               <FaReact  className=" cursor-pointer border border-blue-700 rounded text-6xl p-3 text-white" />
             </motion.div>
@@ -48,9 +48,6 @@ const About = () => {
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.8, repeat: Infinity}}>
               <IoLogoFirebase className=" cursor-pointer border border-blue-700 rounded text-6xl p-3 text-white" />
             </motion.div>
-            
-            
-           
           </div>
           <div className="flex gap-3 mt-5">
             <a

@@ -22,9 +22,8 @@ const Projects = () => {
           My Projects
         </h2>
         <div >
-          {projects.map((project, idx) => (
-            <ProjectCard key={idx} project={project} />
-          ))}
+            <ProjectCard />
+         
         </div>
       </div>
     </section>

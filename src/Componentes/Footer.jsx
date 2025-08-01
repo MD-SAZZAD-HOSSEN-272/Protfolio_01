@@ -7,7 +7,7 @@ export default function Footer() {
         
         {/* About Section */}
         <div>
-          <h3 className="text-xl font-semibold mb-2 text-white">Your Name</h3>
+          <h3 className="text-xl font-semibold mb-2 text-white">Md. Sazzad Hossen</h3>
           <p className="text-gray-400">Web Developer | Designer | Creator</p>
         </div>
 
@@ -91,7 +91,7 @@ export default function Footer() {
 
       {/* Footer Bottom */}
       <div className="mt-10 text-center text-gray-500 text-sm">
-        © 2025 Your Name. All rights reserved.
+        © 2025 Md. Sazzad Hossen. All rights reserved.
       </div>
     </footer>
   );

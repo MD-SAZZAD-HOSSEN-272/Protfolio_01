@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logoImage from './assets/logo1.png'
 import { Link } from 'react-scroll';
+import { NavLink } from 'react-router';
+import { CiMenuBurger } from 'react-icons/ci';
 
 const Navbar = () => {
+    const [menu, setMenu] = useState(false)
     return (
         <nav className=' py-1 top-0 mx-auto left-0 px-5 rounded-2xl right-0 fixed bg-[#0f0f23]/80 backdrop-blur-md shadow-md z-50 text-white'>
             <div className="max-w-7xl flex justify-between items-center mx-auto px-4 py-3">
             <img className='w-16 h-16' src={logoImage} alt="" />
-            <div className='flex items-center gap-8'>
-                <Link to='home' smooth={true} duration={1000} offset={-200} className="hover:text-purple-400 transition">Home</Link>
-                <Link to='about' smooth={true} duration={1000} offset={-100} className="hover:text-purple-400 transition">About</Link>
-                <Link to='skill' smooth={true} duration={1000} offset={-100} className="hover:text-purple-400 transition">Skill</Link>
-                <Link to='project' smooth={true} duration={1000} offset={-300} className="hover:text-purple-400 transition">Project</Link>
-                <Link to='contact' smooth={true} duration={1000} offset={-100} className="hover:text-purple-400 transition">Contact</Link>
+            <div className='items-center gap-8 hidden lg:flex'>
+                <Link to='home' smooth={true} duration={1000} offset={-200} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Home</Link>
+                <Link to='about' smooth={true} duration={1000} offset={-100} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">About</Link>
+                <Link to='skill' smooth={true} duration={1000} offset={-100} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Skill</Link>
+                <Link to='project' smooth={true} duration={1000} offset={-300} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Project</Link>
+                <Link to='contact' smooth={true} duration={1000} offset={-100} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Contact</Link>
             </div>
-            <button>Resume</button>
+            <div className='flex items-center gap-5 justify-center '>
+                <div className='relative lg:hidden'>
+                <CiMenuBurger onClick={() => setMenu(!menu)} className='' />
+                <div className={`flex absolute ${menu ? '-left-20 transition-all duration-500' : 'left-50 transition-all duration-500'} mt-10 transition-all duration-300 bg-[#0f0f23]/90 backdrop-blur z-50 p-5 rounded-xl flex-col items-center gap-8`}>
+                <Link to='home' smooth={true} duration={1000} offset={-200} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Home</Link>
+                <Link to='about' smooth={true} duration={1000} offset={-100} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">About</Link>
+                <Link to='skill' smooth={true} duration={1000} offset={-100} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Skill</Link>
+                <Link to='project' smooth={true} duration={1000} offset={-300} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Project</Link>
+                <Link to='contact' smooth={true} duration={1000} offset={-100} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Contact</Link>
+            </div>
+            </div>
+            <NavLink target='blank' to='https://drive.google.com/file/d/1x3ZUtpNsV4LdTuSNJyffZOlE6HNjpBMB/view?usp=sharing' className='cursor-pointer border p-3 rounded-xl'>Resume</NavLink>
+            </div>
         </div>
         </nav>
     );
