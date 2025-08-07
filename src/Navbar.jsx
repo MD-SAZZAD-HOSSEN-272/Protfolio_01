@@ -28,7 +28,7 @@ const Navbar = () => {
                 <Link to='contact' smooth={true} duration={1000} offset={-100} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Contact</Link>
             </div>
             </div>
-            <NavLink target='blank' to='https://drive.google.com/file/d/1x3ZUtpNsV4LdTuSNJyffZOlE6HNjpBMB/view?usp=sharing' className='cursor-pointer border p-3 rounded-xl'>Resume</NavLink>
+            <NavLink target='blank' to='https://drive.google.com/file/d/16bo1GYvaruiDQU66Hn7b6QvZE26WI6Pb/view?usp=sharing' className='cursor-pointer border p-3 rounded-xl hover:text-purple-400'>Resume</NavLink>
             </div>
         </div>
         </nav>

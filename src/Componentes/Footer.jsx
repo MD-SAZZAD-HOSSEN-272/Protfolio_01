@@ -1,3 +1,4 @@
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 export default function Footer() {
@@ -8,89 +9,26 @@ export default function Footer() {
         {/* About Section */}
         <div>
           <h3 className="text-xl font-semibold mb-2 text-white">Md. Sazzad Hossen</h3>
+          
+        </div>
+
+        <div>
           <p className="text-gray-400">Web Developer | Designer | Creator</p>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3 text-white">Quick Links</h4>
-          <ul className="space-y-2">
-            <li>
-              <Link to="/about" className="hover:text-blue-400 transition">About Me</Link>
-            </li>
-            <li>
-              <Link to="/projects" className="hover:text-blue-400 transition">Projects</Link>
-            </li>
-            <li>
-              <Link to="/contact" className="hover:text-blue-400 transition">Contact</Link>
-            </li>
-            <li>
-              <Link to="/blog" className="hover:text-blue-400 transition">Blog</Link>
-            </li>
-          </ul>
-        </div>
-
         {/* Social Links */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3 text-white">Follow Me</h4>
-          <div className="flex space-x-6 text-2xl">
-            <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="hover:text-blue-400 transition"
-            >
-              {/* GitHub Icon (Simple SVG) */}
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M12 0.297c-6.63 0-12 5.373-12 12 ... (icon path truncated) ..." />
-              </svg>
-            </a>
-            <a
-              href="https://linkedin.com/in/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-blue-400 transition"
-            >
-              {/* LinkedIn Icon */}
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M4.98 3.5c0 1.38-1.12 2.5-2.5 ... (icon path truncated) ..." />
-              </svg>
-            </a>
-            <a
-              href="https://twitter.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              className="hover:text-blue-400 transition"
-            >
-              {/* Twitter Icon */}
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M23.954 4.569c-0.885 0.39-1.83 0.654-2.825 ... (icon path truncated) ..." />
-              </svg>
-            </a>
+        <div className='mb-2'>
+          <h4 className="text-lg font-semibold mb-1 text-white">Follow Me</h4>
+          <div className='flex gap-2'>
+            <a href="https://www.facebook.com/mdsazzad272/"><FaFacebook /></a>
+          <a href="https://github.com/MD-SAZZAD-HOSSEN-272"><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/sazzad272/"><FaLinkedin /></a>
           </div>
         </div>
       </div>
 
       {/* Footer Bottom */}
-      <div className="mt-10 text-center text-gray-500 text-sm">
+      <div className="pt-2 border-t border-blue-500 text-center text-gray-500 text-sm">
         © 2025 Md. Sazzad Hossen. All rights reserved.
       </div>
     </footer>

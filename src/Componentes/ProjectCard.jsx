@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaInfoCircle } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-import { Element } from 'react-scroll';
-import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../hooks/useAxiosSecure';
+import React, { useState } from "react";
+import { FaGithub, FaExternalLinkAlt, FaInfoCircle } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { Element } from "react-scroll";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import NoFoundProject from "./NoFoundProject";
 
 const LIMIT = 3; // Number of projects per page
 
 const ProjectCard = () => {
   const axiosSecure = useAxiosSecure();
   const [page, setPage] = useState(1);
+  const [open, setOpen] = useState(false);
 
   const { data, isLoading } = useQuery({
-    queryKey: ['tasks', page],
+    queryKey: ["tasks", page],
     queryFn: async () => {
       const res = await axiosSecure.get(`/tasks?page=${page}&limit=${LIMIT}`);
       console.log(res);
@@ -31,7 +33,9 @@ const ProjectCard = () => {
   const handleNext = () => {
     if (page < totalPages) setPage(page + 1);
   };
-console.log(projects);
+
+  if (projects.length <= 0) return <NoFoundProject />;
+
   return (
     <Element name="project">
       <motion.div
@@ -45,60 +49,170 @@ console.log(projects);
         ) : (
           <>
             {projects?.map((project, index) => (
-              <div
-                key={index}
-                className="flex flex-col lg:flex-row items-center gap-6 w-full rounded-2xl shadow-md"
-              >
-                <div className="lg:w-1/2">
-                  <img
-                    className="w-full rounded-2xl h-80"
-                    src={project?.task_image_url
-}
-                    alt=""
-                  />
-                </div>
+              <div key={index}>
+                <div className="flex flex-col lg:flex-row items-center gap-6 w-full rounded-2xl shadow-md">
+                  <div className="lg:w-1/2">
+                    <img
+                      className="w-full rounded-2xl h-80 object-cover"
+                      src={project?.task_image_url}
+                      alt=""
+                    />
+                  </div>
 
-                <div className="flex flex-col space-y-5 lg:w-1/2">
-                  <h2 className="md:text-2xl text-xl font-semibold">{project?.title}</h2>
-                  <p className="text-gray-600">{project?.description}</p>
-                  <ul className="list-disc list-inside text-sm text-gray-700">
-                    {project?.features?.map((feature, idx) => (
-                      <li key={idx}>{feature}</li>
-                    ))}
-                  </ul>
+                  <div className="flex flex-col space-y-5 lg:w-1/2">
+                    <h2 className="md:text-2xl text-xl font-semibold">
+                      {project?.title}
+                    </h2>
+                    <p className="text-gray-600">{project?.description}</p>
+                    <ul className="list-disc list-inside text-sm text-gray-700">
+                      {project?.features?.map((feature, idx) => (
+                        <li key={idx}>{feature}</li>
+                      ))}
+                    </ul>
 
-                  <div className="grid grid-cols-2 md:grid-cols-6 gap-5">
-                    {project?.techStack?.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="badge badge-outline text-sm px-3 py-2 hover:bg-pink-500 hover:border-0 rounded-md border-gray-300"
+                    <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2">
+                      {project?.techStack?.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="badge badge-outline text-sm w-28 px-3 py-2 hover:bg-pink-500 hover:border-0 rounded-md border-gray-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 w-fit gap-3 pt-4 px-3">
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-fit"
                       >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="grid grid-cols-2 lg:grid-cols-4 w-fit gap-3 pt-4 px-3">
-                    <a href={project.live} target="_blank" rel="noreferrer" className='w-fit'>
-                      <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-green-500 hover:bg-green-600 text-white">
-                        <FaExternalLinkAlt /> Live
+                        <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-green-500 hover:bg-green-600 text-white">
+                          <FaExternalLinkAlt /> Live
+                        </button>
+                      </a>
+                      <a
+                        href={project.clientRepo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-fit"
+                      >
+                        <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-gray-800 hover:bg-gray-900 text-white">
+                          <FaGithub /> Client
+                        </button>
+                      </a>
+                      <a
+                        href={project.serverRepo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-fit"
+                      >
+                        <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-gray-800 hover:bg-gray-900 text-white">
+                          <FaGithub /> Server
+                        </button>
+                      </a>
+                      <button
+                        onClick={() => setOpen(true)}
+                        className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-blue-500 hover:bg-blue-600 text-white"
+                      >
+                        <FaInfoCircle /> Details
                       </button>
-                    </a>
-                    <a href={project.clientRepo} target="_blank" rel="noreferrer" className='w-fit'>
-                      <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-gray-800 hover:bg-gray-900 text-white">
-                        <FaGithub /> Client
-                      </button>
-                    </a>
-                    <a href={project.serverRepo} target="_blank" rel="noreferrer" className='w-fit'>
-                      <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-gray-800 hover:bg-gray-900 text-white">
-                        <FaGithub /> Server
-                      </button>
-                    </a>
-                    <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-blue-500 hover:bg-blue-600 text-white">
-                      <FaInfoCircle /> Details
-                    </button>
+                    </div>
                   </div>
                 </div>
+                {open && (
+                  <dialog className="modal modal-open">
+                    <div className="modal-box flex flex-col lg:flex-row gap-10 bg-[#0f0f23] text-white max-w-4xl rounded-2xl shadow-2xl border border-[#8a2be2]">
+                      <div className="overflow-hidden rounded-xl lg:w-1/2">
+                        <img
+                          src={project.task_image_url}
+                          alt="Project"
+                          className="w-full object-cover rounded-xl mb-5 border border-gray-700"
+                        />
+                      </div>
+
+                      <div className="lg:w-1/2">
+                        <h3 className="text-2xl font-bold text-purple-400 mb-4">
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-300 text-sm mb-2">
+                          <strong>Description:</strong> {project.description}
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mt-4">
+                          <div>
+                            <h4 className="text-purple-300 font-semibold mb-1">
+                              ✨ Features
+                            </h4>
+                            <ul className="list-disc ml-6">
+                              {project.features?.map((feature, i) => (
+                                <li key={i}>{feature}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="text-purple-300 font-semibold mb-1">
+                              🧪 Tech Stack
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {project.techStack?.map((tech, i) => (
+                                <span
+                                  key={i}
+                                  className="badge badge-outline border-purple-500 text-purple-300 text-xs"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 text-sm text-gray-300">
+                          <p>
+                            <strong>Role:</strong> {project.role}
+                          </p>
+                          <p>
+                            <strong>Responsibilities:</strong>{" "}
+                            {project.responsibilities}
+                          </p>
+                        </div>
+
+                        <div className="mt-5 flex flex-wrap gap-3">
+                          <a
+                            href={project.live}
+                            target="_blank"
+                            className="btn btn-success btn-sm"
+                          >
+                            🌐 Live
+                          </a>
+                          <a
+                            href={project.clientRepo}
+                            target="_blank"
+                            className="btn btn-primary btn-sm"
+                          >
+                            💻 Client
+                          </a>
+                          <a
+                            href={project.serverRepo}
+                            target="_blank"
+                            className="btn btn-secondary btn-sm"
+                          >
+                            🗄 Server
+                          </a>
+                        </div>
+                        <div className="modal-action">
+                          <button
+                            onClick={() => setOpen(false)}
+                            className="btn btn-outline border-purple-500 hover:text-black text-purple-300"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </dialog>
+                )}
               </div>
             ))}
 
@@ -111,7 +225,9 @@ console.log(projects);
               >
                 Prev
               </button>
-              <span className="font-medium">Page {page} of {totalPages}</span>
+              <span className="font-medium">
+                Page {page} of {totalPages}
+              </span>
               <button
                 onClick={handleNext}
                 disabled={page === totalPages}

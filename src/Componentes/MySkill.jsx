@@ -30,7 +30,7 @@ const FrontendSkills = () => {
     <Element name="skill">
       <section id="skills" className="rounded-2xl z-10 text-white py-12 px-4">
       <div className=" text-center">
-        <h2 className="text-4xl font-bold mb-8">Frontend Development Skills</h2>
+        <h2 className="text-4xl font-bold mb-8 text-purple-400">Frontend Development Skills</h2>
         <p className="mb-10 text-lg text-gray-300">
           These are the tools and technologies I use to build interactive, fast,
           and modern web applications.
