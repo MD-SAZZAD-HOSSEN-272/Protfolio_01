@@ -92,7 +92,7 @@ const Contact = () => {
               ></textarea>
               <button
                 type="submit"
-                className="px-6 py-3 cursor-pointer bg-transparent border border-blue-500 rounded-md hover:bg-bue-700 hover:text-white transition-all"
+                className="px-6 py-3 cursor-pointer bg-transparent border hover:bg-blue-800 border-blue-500 rounded-md hover:bg-bue-700 hover:text-white transition-all"
               >
                 Send Message
               </button>

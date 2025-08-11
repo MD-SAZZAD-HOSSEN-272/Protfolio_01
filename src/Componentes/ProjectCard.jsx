@@ -5,6 +5,7 @@ import { Element } from "react-scroll";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import NoFoundProject from "./NoFoundProject";
+import Loader from "./Loader";
 
 const LIMIT = 3; // Number of projects per page
 
@@ -12,6 +13,7 @@ const ProjectCard = () => {
   const axiosSecure = useAxiosSecure();
   const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
+  const [modalData, setModalData] = useState({})
 
   const { data, isLoading } = useQuery({
     queryKey: ["tasks", page],
@@ -34,6 +36,12 @@ const ProjectCard = () => {
     if (page < totalPages) setPage(page + 1);
   };
 
+  const handleModal = (id) => {
+    const modalData = projects.find(project => project._id === id)
+    setModalData(modalData);
+    setOpen(true)
+  }
+ if(isLoading) return <Loader></Loader>
   if (projects.length <= 0) return <NoFoundProject />;
 
   return (
@@ -44,14 +52,11 @@ const ProjectCard = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {isLoading ? (
-          <p className="text-center text-gray-500">Loading projects...</p>
-        ) : (
-          <>
+          <div className="space-y-5">
             {projects?.map((project, index) => (
               <div key={index}>
-                <div className="flex flex-col lg:flex-row items-center gap-6 w-full rounded-2xl shadow-md">
-                  <div className="lg:w-1/2">
+                <div className="flex flex-col lg:flex-row items-center gap-6 w-full rounded-2xl shadow-2xl p-4">
+                  <div className="lg:w-1/2 w-full">
                     <img
                       className="w-full rounded-2xl h-80 object-cover"
                       src={project?.task_image_url}
@@ -59,12 +64,12 @@ const ProjectCard = () => {
                     />
                   </div>
 
-                  <div className="flex flex-col space-y-5 lg:w-1/2">
-                    <h2 className="md:text-2xl text-xl font-semibold">
+                  <div className="flex flex-col space-y-2 lg:w-1/2">
+                    <h2 className="md:text-2xl text-xl font-semibold pt-5">
                       {project?.title}
                     </h2>
-                    <p className="text-gray-600">{project?.description}</p>
-                    <ul className="list-disc list-inside text-sm text-gray-700">
+                    <p className="text-gray-400">{project?.description}</p>
+                    <ul className="list-disc list-inside text-sm text-gray-400">
                       {project?.features?.map((feature, idx) => (
                         <li key={idx}>{feature}</li>
                       ))}
@@ -113,7 +118,7 @@ const ProjectCard = () => {
                         </button>
                       </a>
                       <button
-                        onClick={() => setOpen(true)}
+                        onClick={() => handleModal(project._id)}
                         className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-blue-500 hover:bg-blue-600 text-white"
                       >
                         <FaInfoCircle /> Details
@@ -124,9 +129,9 @@ const ProjectCard = () => {
                 {open && (
                   <dialog className="modal modal-open">
                     <div className="modal-box flex flex-col lg:flex-row gap-10 bg-[#0f0f23] text-white max-w-4xl rounded-2xl shadow-2xl border border-[#8a2be2]">
-                      <div className="overflow-hidden rounded-xl lg:w-1/2">
+                      <div className=" rounded-xl lg:w-1/2">
                         <img
-                          src={project.task_image_url}
+                          src={modalData.task_image_url}
                           alt="Project"
                           className="w-full object-cover rounded-xl mb-5 border border-gray-700"
                         />
@@ -134,10 +139,10 @@ const ProjectCard = () => {
 
                       <div className="lg:w-1/2">
                         <h3 className="text-2xl font-bold text-purple-400 mb-4">
-                          {project.title}
+                          {modalData.title}
                         </h3>
                         <p className="text-gray-300 text-sm mb-2">
-                          <strong>Description:</strong> {project.description}
+                          <strong>Description:</strong> {modalData.description}
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mt-4">
@@ -146,7 +151,7 @@ const ProjectCard = () => {
                               ✨ Features
                             </h4>
                             <ul className="list-disc ml-6">
-                              {project.features?.map((feature, i) => (
+                              {modalData.features?.map((feature, i) => (
                                 <li key={i}>{feature}</li>
                               ))}
                             </ul>
@@ -156,7 +161,7 @@ const ProjectCard = () => {
                               🧪 Tech Stack
                             </h4>
                             <div className="flex flex-wrap gap-2">
-                              {project.techStack?.map((tech, i) => (
+                              {modalData.techStack?.map((tech, i) => (
                                 <span
                                   key={i}
                                   className="badge badge-outline border-purple-500 text-purple-300 text-xs"
@@ -170,31 +175,31 @@ const ProjectCard = () => {
 
                         <div className="mt-4 text-sm text-gray-300">
                           <p>
-                            <strong>Role:</strong> {project.role}
+                            <strong>Role:</strong> {modalData.role}
                           </p>
                           <p>
                             <strong>Responsibilities:</strong>{" "}
-                            {project.responsibilities}
+                            {modalData.responsibilities}
                           </p>
                         </div>
 
                         <div className="mt-5 flex flex-wrap gap-3">
                           <a
-                            href={project.live}
+                            href={modalData.live}
                             target="_blank"
                             className="btn btn-success btn-sm"
                           >
                             🌐 Live
                           </a>
                           <a
-                            href={project.clientRepo}
+                            href={modalData.clientRepo}
                             target="_blank"
                             className="btn btn-primary btn-sm"
                           >
                             💻 Client
                           </a>
                           <a
-                            href={project.serverRepo}
+                            href={modalData.serverRepo}
                             target="_blank"
                             className="btn btn-secondary btn-sm"
                           >
@@ -236,8 +241,7 @@ const ProjectCard = () => {
                 Next
               </button>
             </div>
-          </>
-        )}
+          </div>
       </motion.div>
     </Element>
   );

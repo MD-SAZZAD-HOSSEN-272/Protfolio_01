@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 export default function Footer() {
   return (
-    <footer className="rounded-2xl bg-gradient-to-br from-[#0f0f23] via-[#0a0a23] to-[#0f0f23] text-gray-300 py-10 px-5">
+    <footer className="rounded-2xl bg-gradient-to-br text-center md:text-left from-[#0f0f23] via-[#0a0a23] to-[#0f0f23] text-gray-300 py-10 px-5">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
         
         {/* About Section */}
@@ -19,7 +19,7 @@ export default function Footer() {
         {/* Social Links */}
         <div className='mb-2'>
           <h4 className="text-lg font-semibold mb-1 text-white">Follow Me</h4>
-          <div className='flex gap-2'>
+          <div className='flex gap-2 justify-center'>
             <a href="https://www.facebook.com/mdsazzad272/"><FaFacebook /></a>
           <a href="https://github.com/MD-SAZZAD-HOSSEN-272"><FaGithub /></a>
           <a href="https://www.linkedin.com/in/sazzad272/"><FaLinkedin /></a>

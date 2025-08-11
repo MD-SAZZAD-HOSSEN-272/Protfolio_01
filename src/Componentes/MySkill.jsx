@@ -8,8 +8,10 @@ import {
   FaReact,
   FaFigma,
   FaGithub,
+  FaNode,
 } from "react-icons/fa";
-import { SiTailwindcss } from "react-icons/si";
+import { IoLogoFirebase } from "react-icons/io5";
+import { SiExpress, SiMongodb, SiTailwindcss } from "react-icons/si";
 import { Element } from "react-scroll";
 
 const skills = [
@@ -18,6 +20,10 @@ const skills = [
   { name: "JavaScript", icon: <FaJsSquare className="text-yellow-400" /> },
   { name: "React", icon: <FaReact className="text-blue-400" /> },
   { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" /> },
+  { name: "Node.js", icon: <FaNode  className="text-teal-400" /> },
+  { name: "Express.js", icon: <SiExpress className="text-teal-400" /> },
+  { name: "MongoDB", icon: <SiMongodb className="text-teal-400" /> },
+  { name: "Firebase", icon: <IoLogoFirebase className="text-teal-400" /> },
   { name: "Figma", icon: <FaFigma className="text-pink-600" /> },
   {
     name: "GitHub",

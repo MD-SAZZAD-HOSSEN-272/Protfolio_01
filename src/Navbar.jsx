@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logoImage from './assets/logo1.png'
+import logoImage from './assets/logo.png'
 import { Link } from 'react-scroll';
 import { NavLink } from 'react-router';
 import { CiMenuBurger } from 'react-icons/ci';
@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <nav className=' py-1 top-0 mx-auto left-0 px-5 rounded-2xl right-0 fixed bg-[#0f0f23]/80 backdrop-blur-md shadow-md z-50 text-white'>
             <div className="max-w-7xl flex justify-between items-center mx-auto px-4 py-3">
-            <img className='w-16 h-16' src={logoImage} alt="" />
+            <Link to='home' smooth={true} duration={1000} offset={-200}><img className='w-16 h-16 cursor-pointer rounded-full' src={logoImage} alt="" /></Link>
             <div className='items-center gap-8 hidden lg:flex'>
                 <Link to='home' smooth={true} duration={1000} offset={-200} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Home</Link>
                 <Link to='about' smooth={true} duration={1000} offset={-100} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">About</Link>
@@ -28,7 +28,7 @@ const Navbar = () => {
                 <Link to='contact' smooth={true} duration={1000} offset={-100} spy={true} activeClass='text-purple-400' className="cursor-pointer hover:text-purple-400 transition">Contact</Link>
             </div>
             </div>
-            <NavLink target='blank' to='https://drive.google.com/file/d/16bo1GYvaruiDQU66Hn7b6QvZE26WI6Pb/view?usp=sharing' className='cursor-pointer border p-3 rounded-xl hover:text-purple-400'>Resume</NavLink>
+            <NavLink target='blank' to='https://drive.google.com/file/d/16bo1GYvaruiDQU66Hn7b6QvZE26WI6Pb/view?usp=sharing' className='cursor-pointer border p-3 rounded-xl hover:border-purple-400'>Resume</NavLink>
             </div>
         </div>
         </nav>

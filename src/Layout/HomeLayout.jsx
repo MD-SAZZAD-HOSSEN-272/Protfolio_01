@@ -2,6 +2,8 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../Navbar';
 import BlureBackground from '../Componentes/BlureBackground';
+import ScrollToTop from 'react-scroll-to-top';
+import Footer from '../Componentes/Footer';
 
 const HomeLayout = () => {
     return (
@@ -15,6 +17,10 @@ const HomeLayout = () => {
             <main className='pt-28'>
                 <Outlet></Outlet>
             </main>
+            <footer className='mt-10'>
+                <Footer></Footer>
+            </footer>
+            <ScrollToTop smooth color='pink' className='animate-bounce !bg-[#0B0B23] !flex !justify-center !items-center !border !border-[#C27AFF]' />
         </div>
        </div>
        </>

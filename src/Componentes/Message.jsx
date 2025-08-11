@@ -1,6 +1,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import Loader from "./Loader";
 
 const Messages = () => {
   const axiosSecure = useAxiosSecure();
@@ -13,7 +14,7 @@ const Messages = () => {
     }
   })
 
-  if (isLoading) return <p>Loading messages...</p>;
+  if (isLoading) return <Loader></Loader>;
   if (error) return <p>Error loading messages</p>;
 
   return (

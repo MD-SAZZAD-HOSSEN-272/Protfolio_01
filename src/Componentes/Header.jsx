@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaReact, FaHtml5, FaCss3Alt, FaNodeJs } from "react-icons/fa";
 import { motion } from "motion/react"
 import {
@@ -7,17 +7,32 @@ import {
   SiTypescript,
   SiJavascript,
 } from "react-icons/si";
-import heroImage from "../assets/hero.png";
+import logo from '../assets/logo.png'
 import { Typewriter } from "react-simple-typewriter";
 import { Element, Link } from "react-scroll";
 import { NavLink } from "react-router";
 
 const Header = () => {
+
+  const [isAnimation, setIsAnimation] = useState(false)
+
+  useEffect (() => {
+    const handleResize = () => {
+      setIsAnimation(window.innerWidth < 760)
+    }
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+
+  },[])
+
   return (
    <Element name="home">
      <div
       id="home"
-      className="flex flex-col md:flex-row pb-80 md:pb-20 xl:pb-40 justify-around px-6 md:px-20 rounded-2xl bg-gradient-to-b from-[#0f0f23] to-[#1f1f5a] text-white py-28"
+      className="flex flex-col md:flex-row pb-80 md:pb-20 xl:pb-40 justify-around px-3 md:px-20 rounded-2xl bg-gradient-to-b from-[#0f0f23] to-[#1f1f5a] text-white py-28"
     >
       <div className="space-y-6 text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-bold leading-tight ">
@@ -42,7 +57,7 @@ const Header = () => {
         </div>
       </div>
         <motion.div
-            animate= {{y: [10, -10, 10],}}
+            animate= {isAnimation ? {} : {y: [10, -10, 10],}}
             transition={{duration: 2, repeat: Infinity}}
         className="relative flex items-center justify-center text-white">
           {/* Orbiting Circle */}
@@ -76,7 +91,7 @@ const Header = () => {
           {/* Centered User Image */}
           <div className="relative z-10 w-48 h-48 rounded-full top-35 md:top-3 xl:top-14 overflow-hidden border-4 border-purple-500 shadow-lg">
             <img
-              src={heroImage}
+              src={logo}
               alt="Sazzad"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500"
             />

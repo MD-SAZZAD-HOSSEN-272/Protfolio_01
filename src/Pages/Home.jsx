@@ -1,10 +1,10 @@
-import React from 'react';
+
 import Header from '../Componentes/Header';
 import About from '../Componentes/About';
 import MySkill from '../Componentes/MySkill';
 import MyProjects from '../Componentes/MyProjects';
 import Contact from '../Componentes/Contact';
-import Footer from '../Componentes/Footer';
+import SkillBars from '../Componentes/SkillBar';
 
 const Home = () => {
     return (
@@ -19,6 +19,9 @@ const Home = () => {
                 <section className='mt-10'>
                     <MySkill></MySkill>
                 </section>
+                <section>
+                    <SkillBars></SkillBars>
+                </section>
                 <section className='mt-10'>
                     <MyProjects></MyProjects>
                 </section>
@@ -27,9 +30,7 @@ const Home = () => {
                 </section>
                 
             </main>
-            <footer className='mt-10'>
-                <Footer></Footer>
-            </footer>
+            
         </div>
     );
 };
