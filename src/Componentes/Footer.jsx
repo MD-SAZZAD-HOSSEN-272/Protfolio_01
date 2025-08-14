@@ -28,7 +28,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Bottom */}
-      <div className="pt-2 border-t border-blue-500 text-center text-gray-500 text-sm">
+      <div className="pt-2 border-t border-purple-500 text-center text-gray-500 text-sm">
         © 2025 Md. Sazzad Hossen. All rights reserved.
       </div>
     </footer>

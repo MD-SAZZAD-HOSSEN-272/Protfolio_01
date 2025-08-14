@@ -4,6 +4,7 @@ import { Element } from "react-scroll";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const Contact = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -28,7 +29,7 @@ const Contact = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      reset()
+      reset();
     },
   });
 
@@ -53,10 +54,12 @@ const Contact = () => {
               <span className="text-gray-300">+880 178 2831 968</span>
             </div>
 
-            <div className="flex items-center gap-4">
-              <FaWhatsapp className="text-purple-400 text-2xl" />
-              <span className="text-gray-300">Chat on WhatsApp</span>
-            </div>
+            <Link to='https://wa.me/8801782831968' target="_blank">
+              <div className="flex items-center gap-4">
+                <FaWhatsapp className="text-purple-400 text-2xl" />
+                <span className="text-gray-300">Chat on WhatsApp</span>
+              </div>
+            </Link>
           </div>
 
           {/* Right - Message Form */}
@@ -69,7 +72,7 @@ const Contact = () => {
                 type="text"
                 {...register("name", { required: true })}
                 placeholder="Your Name"
-                className="w-full bg-transparent border border-blue-500 px-4 py-3 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-700"
+                className="w-full bg-transparent border border-purple-400 px-4 py-3 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-500"
               />
               <input
                 type="email"
@@ -82,17 +85,17 @@ const Contact = () => {
                     message: "Enter a valid email address",
                   },
                 })}
-                className="w-full bg-transparent border border-blue-500 px-4 py-3 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-700"
+                className="w-full bg-transparent border border-purple-400 px-4 py-3 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-500"
               />
               <textarea
                 rows="5"
                 placeholder="Your Message"
                 {...register("message", { required: true })}
-                className="w-full bg-transparent border border-blue-500 px-4 py-3 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-700"
+                className="w-full bg-transparent border border-purple-400 px-4 py-3 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-500"
               ></textarea>
               <button
                 type="submit"
-                className="px-6 py-3 cursor-pointer bg-transparent border hover:bg-blue-800 border-blue-500 rounded-md hover:bg-bue-700 hover:text-white transition-all"
+                className="px-6 py-3 cursor-pointer bg-transparent border hover:bg-purple-800 border-purple-500 rounded-md hover:bg-bue-700 hover:text-white transition-all"
               >
                 Send Message
               </button>

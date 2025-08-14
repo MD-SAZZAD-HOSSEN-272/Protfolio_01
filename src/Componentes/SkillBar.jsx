@@ -16,9 +16,17 @@ const SkillBars = () => {
         level: 90,
       },
     ];
+
+    const colors = {
+      bar: '#6b21a8',
+      title: {
+        text: 'white',
+        background: '#6b21a8'
+      }
+    }
     return (
         <div>
-            <SkillBar skills={skills} animationDuration={5000} animationDelay={200}/>
+            <SkillBar skills={skills} animationDuration={5000} colors={colors} animationDelay={200}/>
         </div>
     );
 };

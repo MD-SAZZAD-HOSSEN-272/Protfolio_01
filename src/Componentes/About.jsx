@@ -34,19 +34,19 @@ const About = () => {
           </p>
           <div  className="grid grid-cols-3 md:grid-cols-6 gap-5  mt-10">
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, repeat: Infinity}}>
-              <FaReact  className=" cursor-pointer border border-blue-700 rounded text-6xl p-3 text-white" />
+              <FaReact  className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.2, repeat: Infinity}}>
-              <RiTailwindCssFill className=" cursor-pointer border border-blue-700 rounded text-6xl p-3 text-white" />
+              <RiTailwindCssFill className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.4, repeat: Infinity}}>
-              <SiMongodb className=" cursor-pointer border border-blue-700 rounded text-6xl p-3 text-white" />
+              <SiMongodb className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.6, repeat: Infinity}}>
-              <IoLogoNodejs className=" cursor-pointer border border-blue-700 rounded text-6xl p-3 text-white" />
+              <IoLogoNodejs className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.8, repeat: Infinity}}>
-              <IoLogoFirebase className=" cursor-pointer border border-blue-700 rounded text-6xl p-3 text-white" />
+              <IoLogoFirebase className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
           </div>
           <div className="flex gap-3 mt-5">

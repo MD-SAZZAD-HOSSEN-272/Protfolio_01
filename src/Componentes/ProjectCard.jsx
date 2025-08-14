@@ -55,17 +55,17 @@ const ProjectCard = () => {
           <div className="space-y-5">
             {projects?.map((project, index) => (
               <div key={index}>
-                <div className="flex flex-col lg:flex-row items-center gap-6 w-full rounded-2xl shadow-2xl p-4">
+                <div className="flex flex-col lg:flex-row items-center bg-[#0f0f231e] gap-6 w-full rounded-2xl shadow-2xl border border-purple-400 p-4">
                   <div className="lg:w-1/2 w-full">
                     <img
-                      className="w-full rounded-2xl h-80 object-cover"
+                      className="w-full rounded-2xl h-96 object-cover"
                       src={project?.task_image_url}
-                      alt=""
+                      alt="Project Image"
                     />
                   </div>
 
                   <div className="flex flex-col space-y-2 lg:w-1/2">
-                    <h2 className="md:text-2xl text-xl font-semibold pt-5">
+                    <h2 className="md:text-2xl text-xl font-semibold pt-5 text-purple-400">
                       {project?.title}
                     </h2>
                     <p className="text-gray-400">{project?.description}</p>
@@ -93,8 +93,8 @@ const ProjectCard = () => {
                         rel="noreferrer"
                         className="w-fit"
                       >
-                        <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-green-500 hover:bg-green-600 text-white">
-                          <FaExternalLinkAlt /> Live
+                        <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-green-600 hover:bg-green-700 text-white">
+                          <FaExternalLinkAlt className="text-purple-400" /> Live
                         </button>
                       </a>
                       <a
@@ -104,7 +104,7 @@ const ProjectCard = () => {
                         className="w-fit"
                       >
                         <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-gray-800 hover:bg-gray-900 text-white">
-                          <FaGithub /> Client
+                          <FaGithub className="text-purple-400"/> Client
                         </button>
                       </a>
                       <a
@@ -114,14 +114,14 @@ const ProjectCard = () => {
                         className="w-fit"
                       >
                         <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-gray-800 hover:bg-gray-900 text-white">
-                          <FaGithub /> Server
+                          <FaGithub className="text-purple-400"/> Server
                         </button>
                       </a>
                       <button
                         onClick={() => handleModal(project._id)}
                         className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-blue-500 hover:bg-blue-600 text-white"
                       >
-                        <FaInfoCircle /> Details
+                        <FaInfoCircle className="text-purple-400"/> Details
                       </button>
                     </div>
                   </div>

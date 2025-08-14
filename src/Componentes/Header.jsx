@@ -8,6 +8,7 @@ import {
   SiJavascript,
 } from "react-icons/si";
 import logo from '../assets/logo.png'
+import logo1 from '../assets/hero.png'
 import { Typewriter } from "react-simple-typewriter";
 import { Element, Link } from "react-scroll";
 import { NavLink } from "react-router";
@@ -91,7 +92,7 @@ const Header = () => {
           {/* Centered User Image */}
           <div className="relative z-10 w-48 h-48 rounded-full top-35 md:top-3 xl:top-14 overflow-hidden border-4 border-purple-500 shadow-lg">
             <img
-              src={logo}
+              src={logo1}
               alt="Sazzad"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500"
             />

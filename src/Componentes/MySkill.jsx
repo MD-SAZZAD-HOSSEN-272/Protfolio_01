@@ -36,7 +36,7 @@ const FrontendSkills = () => {
     <Element name="skill">
       <section id="skills" className="rounded-2xl z-10 text-white py-12 px-4">
       <div className=" text-center">
-        <h2 className="text-4xl font-bold mb-8 text-purple-400">Frontend Development Skills</h2>
+        <h2 className="text-4xl font-bold mb-8 text-purple-400">My Skills</h2>
         <p className="mb-10 text-lg text-gray-300">
           These are the tools and technologies I use to build interactive, fast,
           and modern web applications.
@@ -46,7 +46,7 @@ const FrontendSkills = () => {
             {skills.map((skill, idx) => (
               <div
                 key={idx}
-                className="border border-blue-600 mr-16 w-40 h-full p-6 rounded-xl flex flex-col items-center  transition-all duration-300 ease-in-out shadow-xl hover:bg-transparent cursor-pointer hover:shadow-purple-700/40"
+                className="border border-purple-400 mr-16 w-40 h-full p-6 rounded-xl flex flex-col items-center  transition-all duration-300 ease-in-out shadow-xl hover:bg-transparent cursor-pointer hover:shadow-purple-700/40"
 
                 
               >
