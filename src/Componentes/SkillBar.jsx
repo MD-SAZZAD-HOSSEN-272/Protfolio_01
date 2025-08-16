@@ -26,7 +26,7 @@ const SkillBars = () => {
     }
     return (
         <div>
-            <SkillBar skills={skills} animationDuration={5000} colors={colors} animationDelay={200}/>
+            <SkillBar skills={skills} animationDuration={5000} animationThreshold={0.8} colors={colors} animationDelay={200}/>
         </div>
     );
 };

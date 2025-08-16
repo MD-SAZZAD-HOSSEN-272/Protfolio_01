@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 export default function Footer() {
   return (
-    <footer className="rounded-2xl bg-gradient-to-br text-center md:text-left from-[#0f0f23] via-[#0a0a23] to-[#0f0f23] text-gray-300 py-10 px-5">
+    <footer className="rounded-2xl text-center md:text-left text-gray-300 py-10 px-5">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
         
         {/* About Section */}

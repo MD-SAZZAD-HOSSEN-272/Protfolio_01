@@ -16,7 +16,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className="rounded-2xl bg-gradient-to-br from-[#0f0f23] via-[#0a0a23] to-[#0f0f23] py-20 px-6 min-h-screen text-white">
+    <section className="rounded-2xl  py-20 px-6 min-h-screen text-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-extrabold text-center mb-14 text-purple-400">
           My Projects

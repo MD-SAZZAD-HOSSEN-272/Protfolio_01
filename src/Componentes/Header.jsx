@@ -12,6 +12,7 @@ import logo1 from '../assets/hero.png'
 import { Typewriter } from "react-simple-typewriter";
 import { Element, Link } from "react-scroll";
 import { NavLink } from "react-router";
+import { div } from "motion/react-client";
 
 const Header = () => {
 
@@ -30,10 +31,11 @@ const Header = () => {
   },[])
 
   return (
-   <Element name="home">
+   <section>
+    <Element name="home">
      <div
       id="home"
-      className="flex flex-col md:flex-row pb-80 md:pb-20 xl:pb-40 justify-around px-3 md:px-20 rounded-2xl bg-gradient-to-b from-[#0f0f23] to-[#1f1f5a] text-white py-28"
+      className="flex flex-col md:flex-row pb-80 md:pb-20 xl:pb-40 justify-around px-3 md:px-20 rounded-2xl text-white py-28"
     >
       <div className="space-y-6 text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-bold leading-tight ">
@@ -100,6 +102,7 @@ const Header = () => {
         </motion.div>
       </div>
    </Element>
+   </section>
   );
 };
 

@@ -14,7 +14,7 @@ import { Element, Link } from "react-scroll";
 const About = () => {
   return (
     <Element name="about">
-      <div id="about" className="rounded-2xl bg-gradient-to-br from-[#0f0f23] via-[#0a0a23] to-[#0f0f23] text-white shadow-2xl py-20 px-10">
+      <div id="about" className="rounded-2xl  text-white shadow-pink-500 py-20 px-10">
       <h1 className="text-4xl text-center font-bold text-purple-400">About Me</h1>
       <p className="text-xl text-center font-bold">
         Building Scalable and interactive web solution
@@ -34,19 +34,19 @@ const About = () => {
           </p>
           <div  className="grid grid-cols-3 md:grid-cols-6 gap-5  mt-10">
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, repeat: Infinity}}>
-              <FaReact  className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
+              <FaReact  className=" border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.2, repeat: Infinity}}>
-              <RiTailwindCssFill className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
+              <RiTailwindCssFill className=" border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.4, repeat: Infinity}}>
-              <SiMongodb className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
+              <SiMongodb className=" border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.6, repeat: Infinity}}>
-              <IoLogoNodejs className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
+              <IoLogoNodejs className=" border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.8, repeat: Infinity}}>
-              <IoLogoFirebase className=" cursor-pointer border border-purple-400 rounded text-6xl p-3 text-white" />
+              <IoLogoFirebase className=" border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
           </div>
           <div className="flex gap-3 mt-5">

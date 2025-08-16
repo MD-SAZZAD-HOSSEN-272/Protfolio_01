@@ -10,7 +10,9 @@ const Home = () => {
     return (
         <div>
             <header className='mt-10'>
-                <Header></Header>
+                <section>
+                    <Header></Header>
+                </section>
             </header>
             <main>
                 <section className='mt-10'>

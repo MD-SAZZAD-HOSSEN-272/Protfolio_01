@@ -1,15 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../Navbar';
-import BlureBackground from '../Componentes/BlureBackground';
 import ScrollToTop from 'react-scroll-to-top';
 import Footer from '../Componentes/Footer';
 
 const HomeLayout = () => {
     return (
        <>
-       <BlureBackground></BlureBackground>
-        <div className='min-h-screen bg-gradient-to-br z-10 from-[#0f0f23] via-[#1a1a3c] to-[#1f1f5a] text-white'>
+            <div className='min-h-screen text-white'>
          <div className='w-10/12 mx-auto'>
             <nav>
                 <Navbar></Navbar>

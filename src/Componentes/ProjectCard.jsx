@@ -55,7 +55,7 @@ const ProjectCard = () => {
           <div className="space-y-5">
             {projects?.map((project, index) => (
               <div key={index}>
-                <div className="flex flex-col lg:flex-row items-center bg-[#0f0f231e] gap-6 w-full rounded-2xl shadow-2xl border border-purple-400 p-4">
+                <div className="flex flex-col lg:flex-row items-center bg-[#0f0f231e] shadow-2xl gap-6 w-full rounded-2xl shadow-2xl border border-purple-400 p-4">
                   <div className="lg:w-1/2 w-full">
                     <img
                       className="w-full rounded-2xl h-96 object-cover"
