@@ -13,6 +13,8 @@ const techOptions = [
   "MongoDB",
   "JWT",
   "firebase",
+  "Chart",
+  "JavaScript",
 ];
 
 const AddTask = () => {
