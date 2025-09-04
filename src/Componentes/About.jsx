@@ -3,7 +3,7 @@ import { FaReact } from "react-icons/fa";
 import { IoLogoNodejs } from "react-icons/io";
 import { IoLogoFirebase } from "react-icons/io5";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiMongodb } from "react-icons/si";
+import { SiMongodb, SiNextdotjs } from "react-icons/si";
 import { motion } from "motion/react"
 
 import lottie1 from '../assets/Lotties/lottie2.json';
@@ -47,6 +47,9 @@ const About = () => {
             </motion.div>
             <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.8, repeat: Infinity}}>
               <IoLogoFirebase className=" border border-purple-400 rounded text-6xl p-3 text-white" />
+            </motion.div>
+            <motion.div animate={{y: [0, -20, 0]}} transition={{duration: 3, delay: 0.9, repeat: Infinity}}>
+              <SiNextdotjs className=" border border-purple-400 rounded text-6xl p-3 text-white" />
             </motion.div>
           </div>
           <div className="flex gap-3 mt-5">

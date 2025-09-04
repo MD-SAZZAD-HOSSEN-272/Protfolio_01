@@ -54,8 +54,8 @@ const ProjectCard = () => {
       >
         <div className="space-y-5">
           {projects?.map((project, index) => (
-            <div key={index}>
-              <div className="flex flex-col lg:flex-row relative overflow-hidden group items-center bg-[#0f0f231e] gap-6 w-full rounded-2xl shadow-2xl border border-purple-400 p-4">
+            <div key={index} className="">
+              <div className="flex flex-col lg:flex-row relative overflow-hidden group items-center  gap-6 w-full rounded-2xl shadow-2xl border border-purple-400 p-4">
                 <div className="lg:w-1/2 w-full">
                   <img
                     className="w-full h-96 object-cover transform group-hover:scale-105 rounded-2xl transition duration-500 ease-in-out"
@@ -63,7 +63,7 @@ const ProjectCard = () => {
                     alt="Project Image"
                   />
                 </div>
-                <div className="flex flex-col space-y-2 lg:w-1/2">
+                <div className="flex flex-col space-y-2 lg:w-1/2 text-white">
                   <h2 className="md:text-2xl text-xl font-semibold pt-5 text-purple-400">
                     {project?.title}
                   </h2>

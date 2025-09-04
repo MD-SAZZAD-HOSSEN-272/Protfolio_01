@@ -11,7 +11,7 @@ import {
   FaNode,
 } from "react-icons/fa";
 import { IoLogoFirebase } from "react-icons/io5";
-import { SiExpress, SiMongodb, SiTailwindcss } from "react-icons/si";
+import { SiExpress, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import { Element } from "react-scroll";
 
 const skills = [
@@ -29,6 +29,7 @@ const skills = [
     name: "GitHub",
     icon: <FaGithub className="text-gray-800 dark:text-white" />,
   },
+  {name: "Next.js", icon: <SiNextdotjs className="text-teal-400"/>}
 ];
 
 const FrontendSkills = () => {

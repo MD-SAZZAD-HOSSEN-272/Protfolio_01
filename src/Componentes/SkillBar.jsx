@@ -7,6 +7,7 @@ const SkillBars = () => {
     { type: "JavaScript", level: 80 },
     { type: "React", level: 70 },
     { type: "Tailwind ", level: 85 },
+    {type: "Next.Js", level: 70}
   ];
 
   const back_end = [
@@ -19,7 +20,8 @@ const SkillBars = () => {
   const tools = [
     {type: 'Vs code', level: 85},
     {type: "GitHub", level: 90,},
-    {type: 'Git', level: 65}
+    {type: 'Git', level: 65},
+    {type: 'Figma', level: 80}
   ]
 
   const colors = {
@@ -30,7 +32,7 @@ const SkillBars = () => {
     },
   };
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10">
       <div className="border border-purple-600 p-5 rounded-2xl bg-gray-700/40 backdrop">
         <h1 className="text-purple-400 text-2xl font-bold mb-5 ">Front End</h1>
         <SkillBar
