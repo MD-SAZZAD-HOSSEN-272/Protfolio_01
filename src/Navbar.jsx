@@ -142,7 +142,7 @@ const Navbar = () => {
           </div>
           <NavLink
             target="blank"
-            to="https://drive.google.com/file/d/1oZIJX053qRdcPAqoYT5_T5vFqpJTzd1X/view?usp=sharing"
+            to="https://drive.google.com/file/d/1zqkn_KF-ywGv0Z9hw0fzplF7AijJL4d5/view?usp=sharing"
             className="cursor-pointer border p-3 rounded-xl hover:border-purple-400"
           >
             Resume

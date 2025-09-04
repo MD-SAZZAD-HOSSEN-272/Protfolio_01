@@ -51,7 +51,7 @@ const Header = () => {
           ></Typewriter>
         </h4>
         <div className="flex justify-center md:justify-start gap-6">
-          <NavLink target="blank" to='https://drive.google.com/file/d/1oZIJX053qRdcPAqoYT5_T5vFqpJTzd1X/view?usp=sharing' className="hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 px-6 py-3 rounded-xl font-semibold cursor-pointer transition-colors duration-300 border border-purple-500">
+          <NavLink target="blank" to='https://drive.google.com/file/d/1zqkn_KF-ywGv0Z9hw0fzplF7AijJL4d5/view?usp=sharing' className="hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 px-6 py-3 rounded-xl font-semibold cursor-pointer transition-colors duration-300 border border-purple-500">
             Resume
           </NavLink>
           <Link to='project' smooth={true} duration={1000} offset={-300} className="border border-purple-500 px-6 py-3 cursor-pointer font-semibold rounded-xl hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white transition-colors duration-300">
