@@ -140,13 +140,12 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <NavLink
-            target="blank"
-            to="https://drive.google.com/file/d/1zqkn_KF-ywGv0Z9hw0fzplF7AijJL4d5/view?usp=sharing"
+          <a
+            download='Sazzad_Hossen_Front_end_Resume.pdf' href='/Sazzad_Hossen_Front_end_Resume.pdf'
             className="cursor-pointer border p-3 rounded-xl hover:border-purple-400"
           >
-            Resume
-          </NavLink>
+            Download Resume
+          </a>
         </div>
       </div>
     </nav>

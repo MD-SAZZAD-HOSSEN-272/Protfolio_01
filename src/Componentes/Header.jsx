@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaReact, FaHtml5, FaCss3Alt, FaNodeJs } from "react-icons/fa";
+import { IoMdDownload } from "react-icons/io";
 import { motion } from "motion/react"
 import {
   SiTailwindcss,
@@ -9,10 +10,10 @@ import {
 } from "react-icons/si";
 import logo from '../assets/logo.png'
 import logo1 from '../assets/hero.png'
+import logo2 from '../assets/picture2.png'
 import { Typewriter } from "react-simple-typewriter";
 import { Element, Link } from "react-scroll";
 import { NavLink } from "react-router";
-import { div } from "motion/react-client";
 
 const Header = () => {
 
@@ -50,10 +51,10 @@ const Header = () => {
             cursor
           ></Typewriter>
         </h4>
-        <div className="flex justify-center md:justify-start gap-6">
-          <NavLink target="blank" to='https://drive.google.com/file/d/1zqkn_KF-ywGv0Z9hw0fzplF7AijJL4d5/view?usp=sharing' className="hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 px-6 py-3 rounded-xl font-semibold cursor-pointer transition-colors duration-300 border border-purple-500">
-            Resume
-          </NavLink>
+        <div className="flex justify-center items-center md:justify-start gap-6">
+          <a download='Sazzad_Hossen_Front_end_Resume.pdf' href='/Sazzad_Hossen_Front_end_Resume.pdf' className="hover:bg-gradient-to-r group hover:from-indigo-600 hover:to-purple-600 px-5 py-2 rounded-xl font-semibold cursor-pointer transition-colors duration-300 border border-purple-500">
+            <IoMdDownload  className="w-8 h-8 group-hover:text-white text-purple-500 animate-bounce"/>
+          </a>
           <Link to='project' smooth={true} duration={1000} offset={-300} className="border border-purple-500 px-6 py-3 cursor-pointer font-semibold rounded-xl hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white transition-colors duration-300">
             Projects
           </Link>
@@ -92,9 +93,9 @@ const Header = () => {
           </div>
 
           {/* Centered User Image */}
-          <div className="relative z-10 w-48 h-48 rounded-full top-35 md:top-3 xl:top-14 overflow-hidden border-4 border-purple-500 shadow-lg">
+          <div className="relative z-10 w-48 h-48 rounded-full top-35 bg-gray-900/90 backdrop md:top-3 xl:top-14 overflow-hidden border-4 border-purple-500 shadow-lg">
             <img
-              src={logo1}
+              src={logo2}
               alt="Sazzad"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500"
             />
