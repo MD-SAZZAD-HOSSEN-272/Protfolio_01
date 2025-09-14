@@ -33,7 +33,8 @@ const SkillBars = () => {
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10">
-      <div className="border border-purple-600 p-5 rounded-2xl bg-gray-700/40 backdrop">
+      <div data-aos="fade-up" data-aos-delay='100'
+     data-aos-duration="2000" className="border border-purple-600 p-5 rounded-2xl bg-gray-700/40 backdrop">
         <h1 className="text-purple-400 text-2xl font-bold mb-5 ">Front End</h1>
         <SkillBar
         skills={front_end}
@@ -43,7 +44,8 @@ const SkillBars = () => {
         animationDelay={200}
       />
       </div>
-      <div className="border border-purple-600 p-5 rounded-2xl bg-gray-700/40 backdrop">
+      <div data-aos="fade-up"
+     data-aos-duration="2000" data-aos-delay='500' className="border border-purple-600 p-5 rounded-2xl bg-gray-700/40 backdrop">
       <h1 className="text-purple-400 text-2xl font-bold mb-5 ">Back End</h1>
         <SkillBar
         skills={back_end}
@@ -53,7 +55,8 @@ const SkillBars = () => {
         animationDelay={200}
       />
       </div>
-      <div className="border border-purple-600 p-5 rounded-2xl bg-gray-700/40 backdrop">
+      <div data-aos="fade-up"
+     data-aos-duration="2000" data-aos-delay='1000' className="border border-purple-600 p-5 rounded-2xl bg-gray-700/40 backdrop">
       <h1 className="text-purple-400 text-2xl font-bold mb-5 ">Tools</h1>
         <SkillBar
         skills={tools}

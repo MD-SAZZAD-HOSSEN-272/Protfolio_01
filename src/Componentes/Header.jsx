@@ -38,7 +38,7 @@ const Header = () => {
       id="home"
       className="flex flex-col md:flex-row pb-80 md:pb-20 xl:pb-40 justify-around px-3 md:px-20 rounded-2xl text-white py-28"
     >
-      <div className="space-y-6 text-center md:text-left">
+      <div data-aos="fade-right" className="space-y-6 text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-bold leading-tight ">
           Hello,
           <br /> I Am <span className="text-purple-400">Md. Sazzad Hossen</span>
@@ -93,7 +93,7 @@ const Header = () => {
           </div>
 
           {/* Centered User Image */}
-          <div className="relative z-10 w-48 h-48 rounded-full top-35 bg-gray-900/90 backdrop md:top-3 xl:top-14 overflow-hidden border-4 border-purple-500 shadow-lg">
+          <div data-aos="fade-left" className="relative z-10 w-48 h-48 rounded-full top-35 bg-gray-900/90 backdrop md:top-3 xl:top-14 overflow-hidden border-4 border-purple-500 shadow-lg">
             <img
               src={logo2}
               alt="Sazzad"

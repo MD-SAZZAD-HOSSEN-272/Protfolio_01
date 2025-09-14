@@ -35,7 +35,7 @@ const Contact = () => {
 // bg-gradient-to-br from-[#0f0f23] via-[#0a0a23] to-[#0f0f23]
   return (
     <Element name="contact">
-      <section className=" rounded-2xl   text-white pb-20 px-4">
+      <section data-aos="zoom-in-up" className=" rounded-2xl   text-white pb-20 px-4">
         <h1 className="text-purple-400 font-bold text-3xl py-10 text-center">Contact</h1>
         <div className="max-w-6xl mx-auto z-50  grid md:grid-cols-2 gap-16 items-center">
           {/* Left - Contact Info */}

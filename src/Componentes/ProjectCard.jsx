@@ -54,8 +54,8 @@ const ProjectCard = () => {
       >
         <div className="space-y-5">
           {projects?.map((project, index) => (
-            <div key={index} className="">
-              <div className="flex flex-col lg:flex-row relative overflow-hidden group items-center  gap-6 w-full rounded-2xl shadow-2xl border border-purple-400 p-4">
+            <div  key={index} className="bg-gray-900/80 backdrop overflow-hidden rounded-2xl">
+              <div data-aos='fade-left' className="flex flex-col lg:flex-row relative overflow-hidden group items-center  gap-6 w-full rounded-2xl shadow-2xl border border-purple-400 p-4">
                 <div className="lg:w-1/2 w-full">
                   <img
                     className="w-full h-96 object-cover transform group-hover:scale-105 rounded-2xl transition duration-500 ease-in-out"
@@ -76,12 +76,18 @@ const ProjectCard = () => {
 
                   <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2">
                     {project?.techStack?.map((tag, i) => (
-                      <span
+                      <motion.div
+                      animate={{ y: [0, -6, 0] }}
+                        transition={{
+                          duration: 10,
+                          delay: i * .2,
+                          repeat: Infinity,
+                        }}
                         key={i}
                         className="badge badge-outline text-sm w-28 px-3 py-2 hover:bg-pink-500 hover:border-0 rounded-md border-gray-300"
                       >
                         {tag}
-                      </span>
+                      </motion.div>
                     ))}
                   </div>
 

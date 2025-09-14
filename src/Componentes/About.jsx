@@ -14,7 +14,7 @@ import { Element, Link } from "react-scroll";
 const About = () => {
   return (
     <Element name="about">
-      <div id="about" className="rounded-2xl  text-white shadow-pink-500 py-20 px-10">
+      <div data-aos="zoom-in" id="about" className="rounded-2xl  text-white shadow-pink-500 py-20 px-10">
       <h1 className="text-4xl text-center font-bold text-purple-400">About Me</h1>
       <p className="text-xl text-center font-bold">
         Building Scalable and interactive web solution
