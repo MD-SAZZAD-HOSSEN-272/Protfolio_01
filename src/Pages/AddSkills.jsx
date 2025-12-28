@@ -68,7 +68,7 @@ const AddSkills = () => {
             <input
               type="text"
               name="designation"
-              placeholder="Frontend Development"
+              placeholder="front end | back end | tools"
               {...register('skill_designation', {required: true})}
               className="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-sky-400"
               required
@@ -84,7 +84,7 @@ const AddSkills = () => {
               type="text"
               name="name"
               placeholder="React / JavaScript"
-              {...register('skill_name', {required: true})}
+              {...register('type', {required: true})}
               className="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-indigo-400"
               required
             />
@@ -114,7 +114,7 @@ const AddSkills = () => {
               placeholder="85"
               min="0"
               max="100"
-              {...register('skill_percentage', {required: true})}
+              {...register('level', {required: true})}
               className="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-emerald-400"
               required
             />
@@ -123,9 +123,9 @@ const AddSkills = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full mt-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-semibold tracking-wide hover:opacity-90 transition"
+            className="w-full mt-4 py-2 cursor-pointer rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-semibold tracking-wide hover:opacity-90 transition"
           >
-            Save Skill
+           {isPending ? 'Adding.......' :  ' Save Skill'}
           </button>
         </form>
       </div>
