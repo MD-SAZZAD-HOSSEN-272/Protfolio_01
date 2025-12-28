@@ -92,36 +92,7 @@ const ProjectCard = () => {
                   </div>
 
                   <div className="grid grid-cols-2 md:grid-cols-4 w-fit gap-3 pt-4 px-3">
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-fit"
-                    >
-                      <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-green-600 hover:bg-green-700 text-white">
-                        <FaExternalLinkAlt className="text-purple-400" /> Live
-                      </button>
-                    </a>
-                    <a
-                      href={project.clientRepo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-fit"
-                    >
-                      <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-gray-800 hover:bg-gray-900 text-white">
-                        <FaGithub className="text-purple-400" /> Client
-                      </button>
-                    </a>
-                    <a
-                      href={project.serverRepo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-fit"
-                    >
-                      <button className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-gray-800 hover:bg-gray-900 text-white">
-                        <FaGithub className="text-purple-400" /> Server
-                      </button>
-                    </a>
+                    
                     <button
                       onClick={() => handleModal(project._id)}
                       className="cursor-pointer flex px-4 py-2 rounded-xl items-center gap-1 bg-blue-500 hover:bg-blue-600 text-white"

@@ -1,4 +1,4 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import Marquee from "react-fast-marquee";
 // import { motion } from 'framer-motion';
 import {
@@ -13,6 +13,7 @@ import {
 import { IoLogoFirebase } from "react-icons/io5";
 import { SiExpress, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import { Element } from "react-scroll";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const skills = [
   { name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
@@ -32,7 +33,21 @@ const skills = [
   {name: "Next.js", icon: <SiNextdotjs className="text-teal-400"/>}
 ];
 
-const FrontendSkills = () => {
+const MySkills = () => {
+
+  const axiosSecure = useAxiosSecure()
+
+  const { data, isLoading } = useQuery({
+      queryKey: ["tasks"],
+      queryFn: async () => {
+        const res = await axiosSecure.get(`/add_skills`);
+        return res.data;
+      },
+      keepPreviousData: true,
+    });
+
+    console.log(data);
+
   return (
     <Element name="skill">
       <section id="skills" className="rounded-2xl z-10 text-white py-12 px-4">
@@ -44,15 +59,15 @@ const FrontendSkills = () => {
         </p>
         <div>
           <Marquee className="w-full h-40" play= {true} pauseOnHover= {true}>
-            {skills.map((skill, idx) => (
+            {data.map((skill, idx) => (
               <div
                 key={idx}
                 className="border border-purple-400 mr-16 w-40 h-full p-6 rounded-xl flex flex-col items-center  transition-all duration-300 ease-in-out shadow-xl hover:bg-transparent cursor-pointer hover:shadow-purple-700/40"
 
                 
               >
-                <div className="text-4xl mb-2">{skill.icon}</div>
-                <span className="text-base mt-1">{skill.name}</span>
+                <img className="h-16 mb-2" src={skill.icon_image_url}></img>
+                <span className="text-base mt-1">{skill.skill_name}</span>
               </div>
             ))}
           </Marquee>
@@ -63,4 +78,4 @@ const FrontendSkills = () => {
   );
 };
 
-export default FrontendSkills;
+export default MySkills;

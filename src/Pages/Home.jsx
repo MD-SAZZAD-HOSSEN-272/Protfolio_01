@@ -1,13 +1,13 @@
 
 import Header from '../Componentes/Header';
 import About from '../Componentes/About';
-import MySkill from '../Componentes/MySkill';
 import MyProjects from '../Componentes/MyProjects';
 import Contact from '../Componentes/Contact';
 import SkillBars from '../Componentes/SkillBar';
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 import { useEffect } from 'react';
+import MySkills from '../Componentes/MySkill';
 
 const Home = () => {
     useEffect(() => {
@@ -30,7 +30,7 @@ const Home = () => {
                     <About></About>
                 </section>
                 <section className='mt-10'>
-                    <MySkill></MySkill>
+                    <MySkills></MySkills>
                 </section>
                 <section>
                     <SkillBars></SkillBars>

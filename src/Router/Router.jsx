@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import Dashboard from "../Pages/Dashboard";
 import AddTask from "../Componentes/AddTask";
 import Messages from "../Componentes/Message";
+import AddSkills from "../Pages/AddSkills";
 export const Router = createBrowserRouter([
     {
         path: '/',
@@ -20,6 +21,10 @@ export const Router = createBrowserRouter([
                     {
                         index: true,
                         Component: AddTask
+                    },
+                    {
+                        path: '/dashboard/add_skill',
+                        Component: AddSkills
                     },
                     {
                         path: '/dashboard/messages',
