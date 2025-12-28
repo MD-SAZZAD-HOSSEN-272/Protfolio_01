@@ -7,8 +7,8 @@ import { CiMenuBurger } from "react-icons/ci";
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   return (
-    <nav className=" py-1 top-0 mx-auto left-0 px-5 rounded-2xl right-0 fixed bg-[#0f0f23]/80 backdrop-blur-md shadow-md z-50 text-white">
-      <div className="max-w-7xl flex justify-between items-center mx-auto px-4 py-3">
+    <nav className=" py-1 top-0 mx-auto left-0 rounded-2xl right-0 fixed bg-[#0f0f23]/80 backdrop-blur-md shadow-md z-50 text-white">
+      <div className="max-w-7xl flex justify-between items-center mx-auto py-3">
         <Link to="home" smooth={true} duration={1000} offset={-200}>
           <img
             className="w-16 h-16 cursor-pointer rounded-full"

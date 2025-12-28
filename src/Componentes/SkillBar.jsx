@@ -2,6 +2,7 @@ import SkillBar from "react-skillbars";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 const SkillBars = () => {
   const axiosSecure = useAxiosSecure();
@@ -19,17 +20,26 @@ const SkillBars = () => {
   });
 
   useEffect(() => {
-    const front = data?.filter(d => d.skill_designation === 'front end')
+    const formate = (items) => {
+      return items.map((item) => ({
+        type: item.type,
+        level: Number(item.level)
+      }))
+    }
+    if(!data?.length) return
+    const front = formate( data?.filter(d => d.skill_designation === 'front end'))
     setFrontEnd(front)
 
-    const back = data?.filter(d => d.skill_designation.toLowerCase() === 'back end')
+    const back = formate( data?.filter(d => d.skill_designation === 'back end'))
     setBackEnd(back)
 
-    const tools = data?.filter(d => d.skill_designation.toLowerCase() === 'tool')
+    const tools = formate( data?.filter(d => d.skill_designation === 'tool'))
     setTools(tools)
   }, [data])
 
-  console.log(frontEnd);
+  // console.log(frontEnd);
+
+  if(isLoading) return <Loader></Loader>
 
   const front_end = [
     { type: "HTML5", level: 95 },
@@ -105,7 +115,7 @@ const SkillBars = () => {
       >
         <h1 className="text-purple-400 text-2xl font-bold mb-5 ">Tools</h1>
         <SkillBar
-          skills={tools || 'Now it is Empty'}
+          skills={tools}
           animationDuration={5000}
           animationThreshold={0.8}
           colors={colors}

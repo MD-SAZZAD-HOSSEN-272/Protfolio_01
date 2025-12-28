@@ -15,9 +15,10 @@ const Modal = ({ children, onClose }) => {
 };
 
 const ModalContent = ({ title, children }) => (
-  <div className="text-center">
-    <h2 className="text-xl font-semibold mb-2">{title}</h2>
-    <hr className="w-[80%] mx-auto mb-4" />
+  <div className={`${title === 'Update Skill' ? '' : 'text-center'}`}>
+    <h2 className="text-xl font-semibold">{title}</h2>
+    {title === 'Update Skill' ? '' : <hr className="w-[80%] mx-auto mb-4" />}
+    
     <div className="space-y-2 text-gray-300">{children}</div>
   </div>
 );
