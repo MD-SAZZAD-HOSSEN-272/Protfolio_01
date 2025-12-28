@@ -8,6 +8,7 @@ const Dashboard = () => {
                 <NavLink to='/dashboard' className='border px-4 hover:bg-amber-100 hover:text-black py-3 rounded-xl border-white w-fit'>Add task </NavLink>
                 <NavLink to='/dashboard/add_skill' className='border px-4 hover:bg-amber-100 hover:text-black py-3 rounded-xl border-white w-fit'>Add Skill </NavLink>
                 <NavLink to='messages' className='border px-4 hover:bg-amber-100 hover:text-black py-3 rounded-xl border-white w-fit'>All Message</NavLink>
+                <NavLink to='/dashboard/all_skills' className='border px-4 hover:bg-amber-100 hover:text-black py-3 rounded-xl border-white w-fit'>All skills</NavLink>
             </div>
             <div className='w-3/4'>
                 <Outlet></Outlet>

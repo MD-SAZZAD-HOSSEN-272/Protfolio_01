@@ -14,6 +14,7 @@ import { IoLogoFirebase } from "react-icons/io5";
 import { SiExpress, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import { Element } from "react-scroll";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import Loader from "./Loader";
 
 const skills = [
   { name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
@@ -48,6 +49,8 @@ const MySkills = () => {
 
     console.log(data);
 
+    isLoading && <Loader></Loader>
+
   return (
     <Element name="skill">
       <section id="skills" className="rounded-2xl z-10 text-white py-12 px-4">
@@ -67,7 +70,7 @@ const MySkills = () => {
                 
               >
                 <img className="h-16 mb-2" src={skill.icon_image_url}></img>
-                <span className="text-base mt-1">{skill.skill_name}</span>
+                <span className="text-base mt-1">{skill.type}</span>
               </div>
             ))}
           </Marquee>
