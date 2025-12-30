@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, ModalContent } from "../Componentes/Modal";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../Componentes/Loader";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
+import useUpdateImgBB from "../hooks/useUpdateImgBB";
 
 const AllSkills = () => {
   const [openModal, setOpenModal] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState({});
-  const {register, isPending, reset} = useForm()
+  const { register, isPending, reset, handleSubmit } = useForm();
 
   const axiosSecure = useAxiosSecure();
 
@@ -21,7 +22,21 @@ const AllSkills = () => {
     },
   });
 
+  useEffect(() => {
+    if (selectedSkill) {
+      reset({
+        skill_designation: selectedSkill.skill_designation,
+        type: selectedSkill.type,
+        level: selectedSkill.level,
+        icon_image_url: selectedSkill.icon_image_url || "",
+      });
+    }
+  }, [selectedSkill]);
+
   const handleData = (id) => {
+    if (selectedSkill) {
+      setSelectedSkill(null);
+    }
     const skill = data.find((d) => d._id === id);
     setSelectedSkill(skill);
   };
@@ -36,6 +51,36 @@ const AllSkills = () => {
         text: "You clicked the button!",
         icon: "success",
       });
+      setOpenModal(null);
+      refetch();
+    }
+  };
+
+  // update button
+
+  const handleUpdate = async (id, data) => {
+    if (!data.icon_image_url?.[0]) {
+      console.log("No image to upload");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
+      return;
+    }
+    const imageURl = await useUpdateImgBB(data.icon_image_url?.[0]);
+    data.icon_image_url = imageURl;
+    const res = await axiosSecure.patch(`/update_skills/${id}`, data);
+    if (res.data.modifiedCount) {
+      console.log(res);
+      Swal.fire({
+        title: "Success!",
+        text: "Skill has been updated successfully",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      console.log(res.modifiedCount);
       setOpenModal(null);
       refetch();
     }
@@ -144,6 +189,9 @@ const AllSkills = () => {
 
                   {/* Form */}
                   <form
+                    onSubmit={handleSubmit((data) =>
+                      handleUpdate(selectedSkill._id, data)
+                    )}
                     className="p-6 space-y-5"
                   >
                     {/* Skill Designation */}
@@ -155,6 +203,7 @@ const AllSkills = () => {
                         type="text"
                         name="designation"
                         placeholder={selectedSkill.skill_designation}
+                        defaultValue={selectedSkill.skill_designation}
                         {...register("skill_designation", { required: true })}
                         className="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-sky-400"
                         required

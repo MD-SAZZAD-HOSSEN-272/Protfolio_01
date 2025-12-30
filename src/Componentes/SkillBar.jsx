@@ -33,7 +33,7 @@ const SkillBars = () => {
     const back = formate( data?.filter(d => d.skill_designation.toLowerCase() === 'back end'))
     setBackEnd(back)
 
-    const tools = formate( data?.filter(d => d.skill_designation.toLowerCase() === 'tool'))
+    const tools = formate( data?.filter(d => d.skill_designation.toLowerCase() === 'tool' || 'tools'))
     setTools(tools)
   }, [data])
 
