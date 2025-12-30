@@ -27,17 +27,17 @@ const SkillBars = () => {
       }))
     }
     if(!data?.length) return
-    const front = formate( data?.filter(d => d.skill_designation === 'front end'))
+    const front = formate( data?.filter(d => d.skill_designation.toLowerCase() === 'front end'))
     setFrontEnd(front)
 
-    const back = formate( data?.filter(d => d.skill_designation === 'back end'))
+    const back = formate( data?.filter(d => d.skill_designation.toLowerCase() === 'back end'))
     setBackEnd(back)
 
-    const tools = formate( data?.filter(d => d.skill_designation === 'tool'))
+    const tools = formate( data?.filter(d => d.skill_designation.toLowerCase() === 'tool'))
     setTools(tools)
   }, [data])
 
-  // console.log(frontEnd);
+  console.log(backEnd);
 
   if(isLoading) return <Loader></Loader>
 
