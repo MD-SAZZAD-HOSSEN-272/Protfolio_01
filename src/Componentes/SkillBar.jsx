@@ -21,7 +21,9 @@ const SkillBars = () => {
 
   useEffect(() => {
     const formate = (items) => {
+      console.log(items);
       return items.map((item) => ({
+        skill_designation: item.skill_designation,
         type: item.type,
         level: Number(item.level)
       }))
@@ -33,11 +35,11 @@ const SkillBars = () => {
     const back = formate( data?.filter(d => d.skill_designation.toLowerCase() === 'back end'))
     setBackEnd(back)
 
-    const tools = formate( data?.filter(d => d.skill_designation.toLowerCase() === 'tool' || 'tools'))
+    const tools = formate( data?.filter(d => d.skill_designation.toLowerCase() === 'tool' || d.skill_designation.toLowerCase() === 'tools'))
     setTools(tools)
   }, [data])
 
-  console.log(backEnd);
+  console.log(tools);
 
   if(isLoading) return <Loader></Loader>
 
